@@ -1,0 +1,32 @@
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MongoDB Local Binary
+mongodb-bin/
+
+# Elasticsearch Local Binary
+elasticsearch-bin/
+
+# Screenshot Output (binary)
+docs/screenshot-output.png
+
+# OS Files
+Thumbs.db
+.DS_Store
