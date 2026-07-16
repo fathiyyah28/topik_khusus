@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Variables
+.env
+.env.local
+
+# Redis Server
+redis-server/
+dump.rdb
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Project Specific
+docs/screenshot-output.png
+
+# Redis Server (binary lokal)
+Redis/redis-server/
+
+# Redis Database
+Redis/dump.rdb
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db

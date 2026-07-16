@@ -1,0 +1,5 @@
+# Redis Python Demo - Dependencies
+# =================================
+# Instalasi: pip install -r requirements.txt
+
+redis>=5.0.0,<6.0.0
