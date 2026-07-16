@@ -1,0 +1,98 @@
+[
+  {
+    "_id": 1,
+    "nama": "Laptop Asus ROG Zephyrus G14",
+    "kategori": "Laptop",
+    "harga": 18999000,
+    "stok": 15,
+    "spesifikasi": "AMD Ryzen 9, RAM 16GB, SSD 512GB, RTX 3060"
+  },
+  {
+    "_id": 2,
+    "nama": "Mouse Logitech G304 Wireless",
+    "kategori": "Mouse",
+    "harga": 499000,
+    "stok": 50,
+    "spesifikasi": "Wireless, 12000 DPI, Battery 250 hours"
+  },
+  {
+    "_id": 3,
+    "nama": "Keyboard Mechanical Keychron K2",
+    "kategori": "Keyboard",
+    "harga": 899000,
+    "stok": 30,
+    "spesifikasi": "Mechanical, Wireless, RGB, Hot-swappable"
+  },
+  {
+    "_id": 4,
+    "nama": "Monitor Samsung 27 Inch 4K UHD",
+    "kategori": "Monitor",
+    "harga": 5499000,
+    "stok": 20,
+    "spesifikasi": "27 Inch, 4K UHD, IPS Panel, 60Hz"
+  },
+  {
+    "_id": 5,
+    "nama": "Flashdisk Sandisk 64GB USB 3.0",
+    "kategori": "Flashdisk",
+    "harga": 149000,
+    "stok": 100,
+    "spesifikasi": "64GB, USB 3.0, Read 150MB/s"
+  },
+  {
+    "_id": 6,
+    "nama": "SSD NVMe Samsung 970 EVO Plus 512GB",
+    "kategori": "SSD",
+    "harga": 1299000,
+    "stok": 40,
+    "spesifikasi": "512GB, NVMe M.2, Read 3500MB/s"
+  },
+  {
+    "_id": 7,
+    "nama": "RAM Corsair Vengeance DDR4 16GB",
+    "kategori": "RAM",
+    "harga": 749000,
+    "stok": 35,
+    "spesifikasi": "DDR4, 3200MHz, CL16"
+  },
+  {
+    "_id": 8,
+    "nama": "Printer Epson L3210 Multifunction",
+    "kategori": "Printer",
+    "harga": 2799000,
+    "stok": 10,
+    "spesifikasi": "Inkjet, Print Scan Copy, WiFi"
+  },
+  {
+    "_id": 9,
+    "nama": "Webcam Logitech C920 HD Pro",
+    "kategori": "Webcam",
+    "harga": 649000,
+    "stok": 25,
+    "spesifikasi": "1080p Full HD, Built-in Mic, Autofocus"
+  },
+  {
+    "_id": 10,
+    "nama": "Speaker Creative Pebble 2.0",
+    "kategori": "Speaker",
+    "harga": 349000,
+    "stok": 45,
+    "spesifikasi": "USB Powered, 2.0 Channel, 8W RMS"
+  },
+  {
+    "_id": 11,
+    "nama": "Harddisk External Seagate 1TB",
+    "kategori": "Harddisk",
+    "harga": 949000,
+    "stok": 20,
+    "spesifikasi": "1TB, USB 3.0, Portable 2.5 Inch"
+  },
+  {
+    "_id": 12,
+    "nama": "Router TP-Link Archer AX10",
+    "kategori": "Router",
+    "harga": 549000,
+    "stok": 30,
+    "spesifikasi": "AX1500, Dual Band, Gigabit, WiFi 6"
+  }
+]
