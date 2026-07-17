@@ -107,11 +107,11 @@ async def create_product(product: ProductCreateSchema):
             raise HTTPException(status_code=503, detail="MongoDB tidak tersedia")
 
         # Cek apakah ID sudah ada
-        existing = mongo.cari_by_id(product._id)
+        existing = mongo.cari_by_id(product.id)
         if existing:
             raise HTTPException(
                 status_code=400,
-                detail=f"Produk dengan ID {product._id} sudah ada"
+                detail=f"Produk dengan ID {product.id} sudah ada"
             )
 
         produk_dict = product.model_dump(by_alias=True)
@@ -119,8 +119,8 @@ async def create_product(product: ProductCreateSchema):
         if result is None:
             raise HTTPException(status_code=500, detail="Gagal insert produk")
 
-        # Sinkronisasi ke Search Service
-        await sinkronisasi_ke_search_service("POST", "/sync", produk_dict)
+        # Sinkronisasi ke Search Service (single product, tidak bulk)
+        await sinkronisasi_ke_search_service("POST", "/sync/single", produk_dict)
 
         return ProductResponse(
             message=f"Produk ID {result} berhasil dibuat",
@@ -153,8 +153,8 @@ async def update_product(product_id: int, product: ProductUpdateSchema):
                 detail=f"Produk dengan ID {product_id} tidak ditemukan"
             )
 
-        # Filter field yang tidak None
-        data_baru = product.model_dump(exclude_none=True)
+        # Filter field yang tidak None (gunakan alias agar sesuai dengan MongoDB)
+        data_baru = product.model_dump(exclude_none=True, by_alias=True)
         if not data_baru:
             raise HTTPException(status_code=400, detail="Tidak ada data yang diupdate")
 

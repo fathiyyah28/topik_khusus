@@ -53,7 +53,6 @@ def buat_index() -> bool:
             mapping = {
                 "mappings": {
                     "properties": {
-                        "_id": {"type": "integer"},
                         "nama": {"type": "text", "analyzer": "standard"},
                         "kategori": {"type": "text", "analyzer": "standard"},
                         "harga": {"type": "integer"},
@@ -103,10 +102,12 @@ def index_banyak(data_list: List[Dict[str, Any]]) -> int:
         jumlah = 0
         for data in data_list:
             doc_id = data["_id"]
+            # Buat copy data tanpa _id untuk body (Elasticsearch menganggap _id sebagai metadata)
+            doc_body = {k: v for k, v in data.items() if k != "_id"}
             client.index(
                 index=ELASTIC_INDEX_NAME,
                 id=doc_id,
-                body=data
+                body=doc_body
             )
             jumlah += 1
 
@@ -138,10 +139,12 @@ def index_satu(produk: Dict[str, Any]) -> bool:
 
     try:
         doc_id = produk["_id"]
+        # Buat copy data tanpa _id untuk body (Elasticsearch menganggap _id sebagai metadata)
+        doc_body = {k: v for k, v in produk.items() if k != "_id"}
         client.index(
             index=ELASTIC_INDEX_NAME,
             id=doc_id,
-            body=produk
+            body=doc_body
         )
         client.indices.refresh(index=ELASTIC_INDEX_NAME)
         logger.info(f"Berhasil index produk ID {doc_id} ke ES.")

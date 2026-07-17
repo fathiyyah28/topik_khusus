@@ -10,7 +10,7 @@ from pydantic import BaseModel, Field
 
 class ProductSchema(BaseModel):
     """Schema untuk data produk."""
-    _id: int = Field(..., alias="_id", description="ID produk")
+    id: int = Field(..., alias="_id", description="ID produk")
     nama: str = Field(..., description="Nama produk")
     kategori: str = Field(..., description="Kategori produk")
     harga: int = Field(..., ge=0, description="Harga produk dalam Rupiah")
@@ -19,6 +19,7 @@ class ProductSchema(BaseModel):
 
     class Config:
         populate_by_name = True
+        from_attributes = True
         json_schema_extra = {
             "example": {
                 "_id": 1,
@@ -32,8 +33,8 @@ class ProductSchema(BaseModel):
 
 
 class ProductCreateSchema(BaseModel):
-    """Schema untuk membuat produk baru (tanpa _id opsional)."""
-    _id: int = Field(..., alias="_id", description="ID produk")
+    """Schema untuk membuat produk baru."""
+    id: int = Field(..., alias="_id", description="ID produk")
     nama: str = Field(..., description="Nama produk")
     kategori: str = Field(..., description="Kategori produk")
     harga: int = Field(..., ge=0, description="Harga produk dalam Rupiah")
@@ -42,6 +43,7 @@ class ProductCreateSchema(BaseModel):
 
     class Config:
         populate_by_name = True
+        from_attributes = True
 
 
 class ProductUpdateSchema(BaseModel):

@@ -89,6 +89,40 @@ async def sync_products(request: SyncRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@router.post("/sync/single", response_model=SyncResponse, status_code=201)
+async def sync_single_product(product: Dict[str, Any]):
+    """Sinkronisasi satu produk dari Core Service ke Elasticsearch.
+
+    Dipanggil oleh Core Service saat produk baru dibuat.
+
+    Args:
+        product: Data produk yang akan disinkronisasi.
+    """
+    try:
+        if not es.cek_koneksi():
+            raise HTTPException(
+                status_code=503,
+                detail="Elasticsearch tidak tersedia"
+            )
+
+        berhasil = es.index_satu(product)
+        if not berhasil:
+            raise HTTPException(
+                status_code=500,
+                detail="Gagal sinkronisasi produk ke Elasticsearch"
+            )
+
+        return SyncResponse(
+            message=f"Produk ID {product.get('_id')} berhasil disinkronisasi ke Elasticsearch",
+            total=1
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error sync_single_product: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @router.put("/sync/{product_id}", response_model=SyncResponse)
 async def sync_update_product(product_id: int, data: Dict[str, Any]):
     """Update single document di Elasticsearch.
